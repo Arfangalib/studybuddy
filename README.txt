@@ -1,88 +1,97 @@
-Project Name: StudyBuddy Deliverable 3
+# StudyBuddy
 
-Student Name: Arfan Ali Galib
+A full-stack task management web application for students, built with the MERN stack. Helps students organize their daily tasks with a clean UI, CRUD operations, and a daily motivation/advice feature powered by an external API.
 
-Project Structure:
-- client: React frontend
-- server: Node/Express backend
-- MongoDB Atlas used for database storage
+---
 
-How to Run the Project:
+## Features
 
-1. Open terminal and go to the server folder:
-   cd server
+- **Task Management** — create, view, edit, and delete study tasks
+- **Daily Advice** — motivational tips fetched from an external advice API via the backend
+- **React Router Navigation** — multi-page SPA with Home, Tasks, Add Task, Edit Task, About, and custom 404 pages
+- **MongoDB Atlas** — cloud-hosted database for persistent task storage
+- **REST API** — Express backend with full CRUD routes and external API proxy route
+- **Bootstrap UI** — clean, responsive interface
 
-2. Install dependencies:
-   npm install
+---
 
-3. Open server/config/db.js and replace <YOUR_MONGODB_ATLAS_URI> with your real MongoDB Atlas connection string.
+## Tech Stack
 
-4. Start the backend server:
-   npm start
+| Layer      | Technology                        |
+|------------|-----------------------------------|
+| Frontend   | React, React Router, Axios, Vite  |
+| Backend    | Node.js, Express, Nodemon         |
+| Database   | MongoDB Atlas, Mongoose           |
+| Styling    | Bootstrap, CSS                    |
+| Testing    | Thunder Client                    |
 
-5. Open another terminal and go to the client folder:
-   cd client
+---
 
-6. Install dependencies:
-   npm install
+## Project Structure
 
-7. Start the React frontend:
-   npm run dev
+```
+studybuddy/
+├── client/               # React frontend (Vite)
+│   └── src/
+│       ├── pages/        # HomePage, TasksPage, AddTaskPage, EditTaskPage, AboutPage, 404
+│       ├── components/   # Navbar
+│       └── services/     # taskService.js, adviceService.js (Axios calls)
+├── server/               # Node/Express backend
+│   ├── models/           # Mongoose Task model
+│   ├── routes/           # taskRoutes.js, adviceRoutes.js
+│   ├── data/             # tasks.json (seed data)
+│   └── server.js         # Express app entry point
+└── README.txt
+```
 
-8. Open the browser using the Vite localhost link shown in terminal.
+---
 
-Server Port:
-- Backend runs on port 5000
+## Getting Started
 
-Frontend Features:
-- Home page
-- Tasks page
-- Add Task page
-- Edit Task page
-- About page
-- 404 page
-- React Router navigation
-- Axios calls to backend
-- Daily advice / motivation feature
+### Prerequisites
+- Node.js v18+
+- MongoDB Atlas account (free tier works)
 
-Backend Features:
-- Express server
-- MongoDB Atlas connection
-- Mongoose model
-- CRUD routes for tasks
-- External API route for advice
-- Tested with Thunder Client
+### Setup
 
-Dependencies:
+```bash
+# Clone the repo
+git clone https://github.com/Arfangalib/studybuddy.git
+cd studybuddy
+```
 
-Client:
-- react
-- react-dom
-- react-router-dom
-- axios
-- bootstrap
-- vite
+**Backend:**
+```bash
+cd server
+npm install
+# Add your MongoDB Atlas URI to server/config/db.js
+npm start
+```
+Backend runs on `http://localhost:5000`
 
-Server:
-- express
-- nodemon
-- cors
-- axios
-- mongoose
-- concurrently
+**Frontend:**
+```bash
+cd client
+npm install
+npm run dev
+```
+Frontend runs on the Vite localhost link shown in terminal.
 
-Additional Notes:
-- All task data comes from MongoDB Atlas.
-- No local JSON is used for task data in Deliverable 3.
-- Thunder Client was used to test backend routes.
-- External API feature is implemented through the backend and displayed on the frontend.
-- MongoDB database name : studybuddyDB, collection: tasks.
-MongoDB Setup:
-----------------
-The database is hosted on MongoDB Atlas.
+---
 
-To run this project:
-1. Replace the MONGODB_URI in server/config/db.js with your own MongoDB connection string
-2. Or create your own MongoDB Atlas cluster and update the connection string
+## API Routes
 
-A sample tasks.json file is included to populate the database.
+| Method | Endpoint       | Description          |
+|--------|----------------|----------------------|
+| GET    | /api/tasks     | Get all tasks        |
+| POST   | /api/tasks     | Create a new task    |
+| PUT    | /api/tasks/:id | Update a task        |
+| DELETE | /api/tasks/:id | Delete a task        |
+| GET    | /api/advice    | Fetch daily advice   |
+
+---
+
+## Author
+
+**Arfan Ali Galib** — CSIS Co-op Student @ Douglas College  
+[LinkedIn](https://www.linkedin.com/in/arfan-ali-galib-82153a261/) · [GitHub](https://github.com/Arfangalib)
